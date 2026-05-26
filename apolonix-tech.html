@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Apolonix Tech — Managed IT Services Regina, SK</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --white:#ffffff;
+  --gray-50:#f9f9f8;
+  --gray-100:#f0efed;
+  --gray-200:#e2e1de;
+  --gray-400:#b0afa9;
+  --gray-600:#6b6a66;
+  --gray-800:#2c2c2a;
+  --gray-900:#1a1a18;
+  --accent:#1a1a18;
+  --accent-soft:#e8e7e4;
+  --blue:#1a56a0;
+  --blue-light:#e8f0fb;
+  --radius:12px;
+  --radius-sm:8px;
+  --shadow:0 1px 3px rgba(0,0,0,0.08),0 4px 16px rgba(0,0,0,0.06);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--gray-800);line-height:1.6;font-size:16px}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-200);padding:0 2rem}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:17px;letter-spacing:-0.3px;color:var(--gray-900)}
+.logo-icon{width:34px;height:34px;background:var(--gray-900);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round}
+.nav-links{display:flex;align-items:center;gap:2rem;font-size:14px;color:var(--gray-600)}
+.nav-links a:hover{color:var(--gray-900)}
+.nav-cta{background:var(--gray-900);color:#fff;padding:8px 18px;border-radius:var(--radius-sm);font-size:14px;font-weight:500;transition:opacity 0.2s}
+.nav-cta:hover{opacity:0.85}
+
+/* ── HERO ── */
+.hero{padding:140px 2rem 100px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--gray-100);border:1px solid var(--gray-200);border-radius:100px;padding:5px 14px;font-size:13px;color:var(--gray-600);margin-bottom:1.5rem}
+.hero-badge span{width:7px;height:7px;background:#22c55e;border-radius:50%;display:inline-block}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(38px,5vw,58px);line-height:1.1;letter-spacing:-1px;color:var(--gray-900);margin-bottom:1.25rem}
+.hero h1 em{font-style:italic;color:var(--gray-600)}
+.hero p{font-size:17px;color:var(--gray-600);line-height:1.7;max-width:440px;margin-bottom:2rem;font-weight:300}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{background:var(--gray-900);color:#fff;padding:13px 24px;border-radius:var(--radius-sm);font-size:15px;font-weight:500;transition:opacity 0.2s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{opacity:0.85}
+.btn-secondary{background:transparent;color:var(--gray-800);padding:13px 24px;border-radius:var(--radius-sm);font-size:15px;font-weight:500;border:1px solid var(--gray-200);transition:background 0.2s}
+.btn-secondary:hover{background:var(--gray-50)}
+.hero-visual{position:relative}
+.hero-card-stack{display:flex;flex-direction:column;gap:12px}
+.stat-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow)}
+.stat-card .label{font-size:12px;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px}
+.stat-card .value{font-size:28px;font-weight:600;color:var(--gray-900);letter-spacing:-0.5px}
+.stat-card .sub{font-size:13px;color:var(--gray-600);margin-top:2px}
+.stat-row{display:flex;gap:12px}
+.stat-row .stat-card{flex:1}
+.uptime-bar{height:6px;background:var(--gray-100);border-radius:100px;margin-top:10px;overflow:hidden}
+.uptime-fill{height:100%;width:99.9%;background:var(--gray-900);border-radius:100px}
+
+/* ── LOGOS ── */
+.logos{background:var(--gray-50);border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200);padding:28px 2rem}
+.logos-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:48px;flex-wrap:wrap;justify-content:center}
+.logos p{font-size:12px;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px;white-space:nowrap}
+.logo-name{font-size:15px;font-weight:500;color:var(--gray-400);letter-spacing:-0.3px}
+
+/* ── SERVICES ── */
+.services{padding:100px 2rem;max-width:1100px;margin:0 auto}
+.section-tag{font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--gray-400);margin-bottom:12px}
+.section-title{font-family:'DM Serif Display',serif;font-size:clamp(28px,4vw,42px);color:var(--gray-900);line-height:1.15;letter-spacing:-0.5px;margin-bottom:1rem}
+.section-sub{font-size:16px;color:var(--gray-600);max-width:520px;font-weight:300}
+.services-header{margin-bottom:56px}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.service-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius);padding:32px 28px;transition:box-shadow 0.2s,transform 0.2s;cursor:default}
+.service-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.service-card.featured{background:var(--gray-900);border-color:var(--gray-900);color:#fff}
+.svc-icon{width:44px;height:44px;border-radius:10px;background:var(--gray-100);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.service-card.featured .svc-icon{background:rgba(255,255,255,0.12)}
+.svc-icon svg{width:22px;height:22px;stroke:var(--gray-800);fill:none;stroke-width:1.8;stroke-linecap:round}
+.service-card.featured .svc-icon svg{stroke:#fff}
+.service-card h3{font-size:17px;font-weight:600;margin-bottom:10px;color:var(--gray-900)}
+.service-card.featured h3{color:#fff}
+.service-card p{font-size:14px;color:var(--gray-600);line-height:1.65}
+.service-card.featured p{color:rgba(255,255,255,0.65)}
+.svc-tag{display:inline-block;margin-top:16px;font-size:12px;color:var(--gray-400);background:var(--gray-100);padding:4px 10px;border-radius:100px}
+.service-card.featured .svc-tag{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.55)}
+
+/* ── WHY US ── */
+.why{background:var(--gray-50);border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200);padding:100px 2rem}
+.why-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.why-list{display:flex;flex-direction:column;gap:28px;margin-top:40px}
+.why-item{display:flex;gap:16px;align-items:flex-start}
+.why-num{min-width:32px;height:32px;border-radius:50%;background:var(--gray-900);color:#fff;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.why-item h4{font-size:16px;font-weight:600;color:var(--gray-900);margin-bottom:4px}
+.why-item p{font-size:14px;color:var(--gray-600)}
+.why-visual{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow)}
+.wv-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--gray-100)}
+.wv-row:last-child{border:none}
+.wv-label{font-size:14px;color:var(--gray-600)}
+.wv-val{font-size:14px;font-weight:600;color:var(--gray-900)}
+.pill{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:100px;font-size:12px;font-weight:500}
+.pill.green{background:#dcfce7;color:#166534}
+.pill.blue{background:#dbeafe;color:#1e40af}
+
+/* ── BOOKING ── */
+.booking{padding:100px 2rem;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:13px;font-weight:500;color:var(--gray-600);margin-bottom:6px}
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;background:var(--white);border:1px solid var(--gray-200);
+  border-radius:var(--radius-sm);padding:11px 14px;font-size:15px;
+  font-family:'DM Sans',sans-serif;color:var(--gray-900);outline:none;
+  transition:border-color 0.2s;appearance:none;-webkit-appearance:none
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{border-color:var(--gray-600)}
+.form-group textarea{height:100px;resize:vertical}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.submit-btn{
+  width:100%;background:var(--gray-900);color:#fff;border:none;
+  padding:14px;border-radius:var(--radius-sm);font-size:15px;font-weight:500;
+  cursor:pointer;font-family:'DM Sans',sans-serif;transition:opacity 0.2s,background 0.3s;margin-top:4px
+}
+.submit-btn:hover{opacity:0.85}
+.booking-info{padding-top:8px}
+.booking-info .section-title{font-size:clamp(24px,3vw,36px)}
+.contact-items{display:flex;flex-direction:column;gap:16px;margin-top:36px}
+.contact-item{display:flex;align-items:center;gap:14px}
+.ci-icon{width:40px;height:40px;background:var(--gray-100);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center}
+.ci-icon svg{width:18px;height:18px;stroke:var(--gray-800);fill:none;stroke-width:1.8;stroke-linecap:round}
+.ci-label{font-size:12px;color:var(--gray-400);margin-bottom:2px}
+.ci-val{font-size:14px;font-weight:500;color:var(--gray-900)}
+
+/* ── FOOTER ── */
+footer{background:var(--gray-900);color:rgba(255,255,255,0.5);padding:48px 2rem 32px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:40px;flex-wrap:wrap;gap:32px}
+.footer-logo{font-weight:600;font-size:16px;color:#fff;margin-bottom:8px}
+.footer-tagline{font-size:13px;color:rgba(255,255,255,0.35)}
+.footer-links{display:flex;gap:32px;flex-wrap:wrap}
+.footer-col h5{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.3);margin-bottom:12px}
+.footer-col a{display:block;font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:8px}
+.footer-col a:hover{color:rgba(255,255,255,0.8)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;justify-content:space-between;font-size:13px;flex-wrap:wrap;gap:8px}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .hero{grid-template-columns:1fr;padding:100px 1.25rem 60px;gap:40px}
+  .hero-visual{display:none}
+  .services-grid{grid-template-columns:1fr}
+  .why-inner,.booking{grid-template-columns:1fr;gap:40px}
+  .form-row{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAVIGATION ══ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 18 18">
+          <polyline points="2,12 6,7 10,10 16,4"/>
+          <circle cx="16" cy="4" r="1.5" fill="#fff" stroke="none"/>
+        </svg>
+      </div>
+      Apolonix Tech
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#booking">Contact</a>
+      <a href="#booking" class="nav-cta">Book a Call</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-badge">
+      <span></span> Accepting new clients in Regina, SK
+    </div>
+    <h1>Managed IT for <em>businesses that mean business</em></h1>
+    <p>Proactive support, network management, and IT consulting — so you focus on growth while we handle the technology.</p>
+    <div class="hero-actions">
+      <a href="#booking" class="btn-primary">
+        Book a Free Consultation
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="8" x2="13" y2="8"/>
+          <polyline points="9,4 13,8 9,12"/>
+        </svg>
+      </a>
+      <a href="#services" class="btn-secondary">See Services</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-card-stack">
+      <div class="stat-card">
+        <div class="label">System Uptime</div>
+        <div class="value">99.9%</div>
+        <div class="uptime-bar"><div class="uptime-fill"></div></div>
+        <div class="sub" style="margin-top:8px">All monitored systems healthy</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="label">Avg. Response</div>
+          <div class="value">2 hrs</div>
+          <div class="sub">For priority tickets</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">Clients Served</div>
+          <div class="value">50+</div>
+          <div class="sub">Local businesses</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Today's Status</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:4px">
+          <span style="font-size:14px;color:var(--gray-600)">Network & System set up</span>
+          <span class="pill green">● Active</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:4px">
+          <span style="font-size:14px;color:var(--gray-600)">Hardware troubleshooting</span>
+          <span class="pill green">● Active</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px">
+          <span style="font-size:14px;color:var(--gray-600)">Backup verification</span>
+          <span class="pill blue">● Running</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px">
+          <span style="font-size:14px;color:var(--gray-600)">Camera Set Up</span>
+          <span class="pill blue">● Running</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px">
+          <span style="font-size:14px;color:var(--gray-600)">Microsoft Ecosystem</span>
+          <span class="pill blue">● Running</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TECH LOGOS ══ -->
+<div class="logos">
+  <div class="logos-inner">
+    <p>Technologies we work with</p>
+    <span class="logo-name">Microsoft 365</span>
+    <span class="logo-name">Windows Server</span>
+    <span class="logo-name">Cisco</span>
+    <span class="logo-name">VMware</span>
+    <span class="logo-name">AWS</span>
+    <span class="logo-name">Azure</span>
+  </div>
+</div>
+
+<!-- ══ SERVICES ══ -->
+<section class="services" id="services">
+  <div class="services-header">
+    <div class="section-tag">What we offer</div>
+    <h2 class="section-title">Full-spectrum IT support,<br>no internal team required</h2>
+    <p class="section-sub">From day-to-day support to long-term strategic planning — we cover every layer of your technology stack.</p>
+  </div>
+  <div class="services-grid">
+
+    <!-- Card 1 -->
+    <div class="service-card">
+      <div class="svc-icon">
+        <svg viewBox="0 0 22 22"><rect x="2" y="3" width="18" height="14" rx="2"/><line x1="8" y1="21" x2="14" y2="21"/><line x1="11" y1="17" x2="11" y2="21"/></svg>
+      </div>
+      <h3>Helpdesk & Remote Support</h3>
+      <p>Fast, reliable support for your staff via phone, remote access, or on-site visits. Get issues resolved before they become problems.</p>
+      <span class="svc-tag">Priority response</span>
+    </div>
+
+    <!-- Card 2 — Featured -->
+    <div class="service-card featured">
+      <div class="svc-icon">
+        <svg viewBox="0 0 22 22"><path d="M11 2L20 7v8l-9 5-9-5V7z"/><polyline points="11,12 11,2"/><line x1="2.5" y1="7.5" x2="11" y2="12"/><line x1="19.5" y1="7.5" x2="11" y2="12"/></svg>
+      </div>
+      <h3>Managed IT Services</h3>
+      <p>Proactive monitoring, patch management, and maintenance of your entire IT infrastructure — all on a predictable monthly plan.</p>
+      <span class="svc-tag">Most popular</span>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="service-card">
+      <div class="svc-icon">
+        <svg viewBox="0 0 22 22"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+      </div>
+      <h3>Network & Infrastructure</h3>
+      <p>Design, setup, and ongoing management of your network, firewalls, servers, and cloud infrastructure — built to scale with you.</p>
+      <span class="svc-tag">On-site available</span>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="service-card">
+      <div class="svc-icon">
+        <svg viewBox="0 0 22 22"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>Cybersecurity</h3>
+      <p>Security assessments, endpoint protection, staff training, and incident response to keep your business data safe and compliant.</p>
+      <span class="svc-tag">Risk audits included</span>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="service-card">
+      <div class="svc-icon">
+        <svg viewBox="0 0 22 22"><ellipse cx="11" cy="11" rx="9" ry="4"/><path d="M2 11c0 4.4 4 8 9 8s9-3.6 9-8"/><line x1="2" y1="11" x2="2" y2="7"/><line x1="20" y1="11" x2="20" y2="7"/></svg>
+      </div>
+      <h3>Cloud & Backup Solutions</h3>
+      <p>Microsoft 365 setup, cloud migrations, and automated backup strategies that ensure your data is always recoverable.</p>
+      <span class="svc-tag">Microsoft partner</span>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="service-card">
+      <div class="svc-icon">
+        <svg viewBox="0 0 22 22"><circle cx="11" cy="11" r="3"/><path d="M19.07 5.93a10 10 0 0 1 0 10.14"/><path d="M2.93 5.93a10 10 0 0 0 0 10.14"/><path d="M15.54 4.46a8 8 0 0 1 0 11.07"/><path d="M6.46 4.46a8 8 0 0 0 0 11.07"/></svg>
+      </div>
+      <h3>IT Consulting & Strategy</h3>
+      <p>Strategic technology planning, vendor management, and IT roadmaps aligned to your business goals and budget.</p>
+      <span class="svc-tag">Quarterly reviews</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ WHY US ══ -->
+<section class="why" id="why">
+  <div class="why-inner">
+    <div>
+      <div class="section-tag">Why Apolonix Tech</div>
+      <h2 class="section-title">Your business deserves<br>a real IT partner</h2>
+      <p class="section-sub" style="margin-top:12px">Not just a break-fix vendor. We proactively protect your systems, respond fast, and plan for your future.</p>
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-num">1</div>
+          <div>
+            <h4>Local expertise, personal service</h4>
+            <p>Based in Regina — we're here when you need us, not just a call centre halfway across the country.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">2</div>
+          <div>
+            <h4>Proactive, not reactive</h4>
+            <p>We monitor your systems 24/7 and fix issues before they affect your business operations.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">3</div>
+          <div>
+            <h4>Transparent flat-rate pricing</h4>
+            <p>No surprise invoices. Predictable monthly plans so you can budget with confidence.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-visual">
+      <div style="font-size:13px;font-weight:600;color:var(--gray-900);margin-bottom:16px">Service Level Overview</div>
+      <div class="wv-row">
+        <span class="wv-label">Avg. ticket resolution</span>
+        <span class="wv-val">4 hours</span>
+      </div>
+      <div class="wv-row">
+        <span class="wv-label">Monthly uptime guarantee</span>
+        <span class="wv-val">99.9%</span>
+      </div>
+      <div class="wv-row">
+        <span class="wv-label">Remote support availability</span>
+        <span class="wv-val">Mon–Fri, 8–6</span>
+      </div>
+      <div class="wv-row">
+        <span class="wv-label">Emergency on-call</span>
+        <span class="wv-val"><span class="pill green">Available</span></span>
+      </div>
+      <div class="wv-row">
+        <span class="wv-label">Onboarding timeline</span>
+        <span class="wv-val">2–5 business days</span>
+      </div>
+      <div class="wv-row">
+        <span class="wv-label">Contract commitment</span>
+        <span class="wv-val">Month-to-month</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BOOKING ══ -->
+<section class="booking" id="booking">
+  <div class="booking-info">
+    <div class="section-tag">Get in touch</div>
+    <h2 class="section-title">Let's talk about your IT needs</h2>
+    <p class="section-sub" style="margin-top:12px;font-size:15px">Book a free 30-minute consultation. No commitments — just an honest conversation about how we can help.</p>
+    <div class="contact-items">
+      <div class="contact-item">
+        <div class="ci-icon">
+          <svg viewBox="0 0 18 18"><path d="M15.05 11.9c-.37-.36-.81-.55-1.27-.55s-.9.19-1.27.55l-.91.91c-.75-.39-1.44-.88-2.06-1.5s-1.11-1.31-1.5-2.06l.91-.91c.36-.37.55-.81.55-1.27s-.19-.9-.55-1.27L7.9 4.75A1.79 1.79 0 0 0 6.63 4.2c-.46 0-.9.19-1.27.55l-.82.82c-.36.36-.57.83-.57 1.3 0 1.03.43 2.11 1.21 3.12A17.1 17.1 0 0 0 9.01 13.8c1.01.78 2.09 1.21 3.12 1.21.47 0 .94-.21 1.3-.57l.82-.82c.36-.37.55-.81.55-1.27s-.19-.9-.55-1.27l-1.2-.18z"/></svg>
+        </div>
+        <div>
+          <div class="ci-label">Phone</div>
+          <div class="ci-val">(306) 316-9171</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">
+          <svg viewBox="0 0 18 18"><path d="M3 3h12a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><polyline points="16,4 9,10 2,4"/></svg>
+        </div>
+        <div>
+          <div class="ci-label">Email</div>
+          <div class="ci-val">milagrosapparel@gmail.com</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">
+          <svg viewBox="0 0 18 18"><path d="M9 1C6.24 1 4 3.24 4 6c0 4.25 5 11 5 11s5-6.75 5-11c0-2.76-2.24-5-5-5z"/><circle cx="9" cy="6" r="1.8"/></svg>
+        </div>
+        <div>
+          <div class="ci-label">Location</div>
+          <div class="ci-val">Regina, Saskatchewan</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Form actions here -->
+  <div>
+  <form action="https://formspree.io/f/xzdwjyob" method="POST" 
+    style="background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius);padding:36px 32px;box-shadow:var(--shadow)">
+
+    <div style="font-size:16px;font-weight:600;color:var(--gray-900);margin-bottom:24px">
+      Book a Free Consultation
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="fname">First name</label>
+        <input id="fname" name="first_name" type="text" placeholder="Jane" required />
+      </div>
+
+      <div class="form-group">
+        <label for="lname">Last name</label>
+        <input id="lname" name="last_name" type="text" placeholder="Smith" required />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Business email</label>
+      <input id="email" name="email" type="email"
+        placeholder="jane@yourbusiness.com" required />
+    </div>
+
+    <div class="form-group">
+      <label for="company">Company name</label>
+      <input id="company" name="company" type="text"
+        placeholder="Your Business Inc." />
+    </div>
+
+    <div class="form-group">
+      <label for="service">What do you need help with?</label>
+      <select id="service" name="service" required>
+        <option value="">Select a service…</option>
+        <option>Managed IT Services</option>
+        <option>Helpdesk Support</option>
+        <option>Network & Infrastructure</option>
+        <option>Cybersecurity</option>
+        <option>Cloud & Backup</option>
+        <option>IT Consulting</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="message">Tell us more (optional)</label>
+      <textarea id="message" name="message"
+        placeholder="Brief description of your current setup or challenges…"></textarea>
+    </div>
+
+    <button class="submit-btn" type="submit">
+      Request a Consultation
+    </button>
+  </form>
+</div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Apolonix Tech</div>
+        <div class="footer-tagline">Managed IT services for local businesses in Regina, SK</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Services</h5>
+          <a href="#services">Helpdesk & Support</a>
+          <a href="#services">Managed IT</a>
+          <a href="#services">Cybersecurity</a>
+          <a href="#services">Cloud Solutions</a>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <a href="#why">Why Us</a>
+          <a href="#booking">Contact</a>
+          <a href="#booking">Book a Call</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Apolonix Tech. All rights reserved.</span>
+      <span>Regina, Saskatchewan, Canada</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function handleSubmit(btn) {
+  btn.textContent = 'Request sent ✓';
+  btn.style.background = '#166534';
+  setTimeout(() => {
+    btn.textContent = 'Request a Consultation';
+    btn.style.background = '';
+  }, 3000);
+}
+</script>
+
+</body>
+</html>
